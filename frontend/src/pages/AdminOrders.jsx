@@ -8,20 +8,20 @@ export default function AdminOrders() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetchOrders();
-  }, [fetchOrders]);
+    const fetchOrders = async () => {
+      try {
+        const res = await api.get("/orders", {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        setOrders(res.data);
+      } catch (err) {
+        console.error(err);
+        alert("Failed to load orders");
+      }
+    };
 
-  const fetchOrders = async () => {
-    try {
-      const res = await api.get("/orders", {
-        headers: { Authorization: `Bearer ${token}` },
-      });
-      setOrders(res.data);
-    } catch (err) {
-      console.error(err);
-      alert("Failed to load orders");
-    }
-  };
+    fetchOrders();
+  }, [token]);
 
   const orderTotal = (items) =>
     items.reduce((acc, item) => acc + Number(item.price), 0);
