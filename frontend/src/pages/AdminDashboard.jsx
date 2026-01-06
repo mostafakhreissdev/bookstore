@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 
 export default function AdminDashboard() {
   const [books, setBooks] = useState([]);
-  const [orders, setOrders] = useState([]);
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
   const [price, setPrice] = useState("");
@@ -14,7 +13,6 @@ export default function AdminDashboard() {
   const [search, setSearch] = useState("");
   const formRef = useRef();
 
-  const token = localStorage.getItem("token");
   const navigate = useNavigate();
 
   // Fetch books
