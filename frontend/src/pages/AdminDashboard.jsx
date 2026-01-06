@@ -29,7 +29,7 @@ export default function AdminDashboard() {
     fetchBooks();
   }, []);
 
-  // Filter books by search
+  //search
   const filteredBooks = books.filter(
     (book) =>
       book.title.toLowerCase().includes(search.toLowerCase()) ||
@@ -78,7 +78,7 @@ export default function AdminDashboard() {
     }
   };
 
-  // Start editing a book
+  //edit book
   const startEdit = (book) => {
     setEditBookId(book.id);
     setTitle(book.title);

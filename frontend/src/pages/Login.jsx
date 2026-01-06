@@ -50,7 +50,7 @@ export default function Login() {
       >
         <h2 className="text-2xl font-bold mb-4 text-center">Login</h2>
 
-        {/* Display validation error */}
+        {/*validation error */}
         {error && (
           <div className="mb-3 text-red-600 text-sm text-center">{error}</div>
         )}

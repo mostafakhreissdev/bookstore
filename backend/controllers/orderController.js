@@ -1,6 +1,6 @@
 const db = require("../config/db");
 
-// Create order (checkout)
+//checkout
 exports.createOrder = (req, res) => {
   const userId = req.user.id;
   const { cart } = req.body;
@@ -34,7 +34,7 @@ exports.createOrder = (req, res) => {
   );
 };
 
-// Get orders for a user
+// Get orders for user
 exports.getUserOrders = (req, res) => {
   const { userId } = req.params;
 
@@ -98,7 +98,7 @@ exports.getAllOrders = (req, res) => {
   db.query(query, (err, rows) => {
     if (err) return res.status(500).json(err);
 
-    // ✅ Group rows by order_id
+    //Group rows by order_id
     const ordersMap = {};
 
     rows.forEach((row) => {
